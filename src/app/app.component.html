@@ -1,0 +1,31 @@
+<!--The whole content below can be removed with the new code.-->
+<div style="text-align:center">
+</div>
+
+<app-face-detect *ngIf="status === 'face_detect'" [ifSearchFace]="selected_side" (ifShowButton)="ifShowButton($event)"></app-face-detect>    
+<app-heartrate *ngIf="status === 'heartrate'" [hrRed]="hrRed" [isDetectHeartrate]="selected_side" (ifShowButton)="ifShowButton($event)"></app-heartrate> 
+<app-leap-button *ngIf="showButton" (selected_side)="choseSide($event)"></app-leap-button>
+<button (click)="heartrate_detech()"></button>   
+<!-- <p>{{selected_side}}</p> 
+<p>{{showButton}}</p> -->
+
+<!-- <md-card></md-card>  -->
+
+<!-- <button (click)="openSocket()">Open Socket</button>
+<button (click)="receiveMsg()">Receive Msg</button>  
+<button (click)="sendMsg()">send Msg</button> -->
+
+<!-- <div class="column">
+  <button (click)="startProcess('weight\r\n')">only weight</button>
+  <button (click)="startProcess('height_weight\r\n')">weight_height</button>
+  <button (click)="startProcess('stop_measure_height\r\n')">stop_weight_height</button>
+  <button (click)="startProcess('platform\r\n')">platform</button>
+  <button (click)="startProcess('10\r\n')">10</button>
+  <button (click)="startProcess('rgbLED\r\n')">rgbLED</button>
+  <button (click)="startProcess('565656\r\n')">#565656</button>
+  <button (click)="startProcess('heartrate\r\n')">heartrate</button>
+  <button (click)="startProcess('hrShutdown\r\n')">hrShutdown</button>
+  <button (click)="startProcess('back_strength\r\n')">back_strength</button>
+  <button (click)="startProcess('armLift_strength\r\n')">armLift_strength</button>
+  <button (click)="startProcess('thigh_strength\r\n')">thigh_strength</button>
+</div>   -->

@@ -1,0 +1,87 @@
+.card {
+  position: fixed;
+  top: 8rem;
+  left: 28%;
+  right: 30%;
+  width:1080px;
+  height: 800px;
+}
+
+.backgroundPicture{
+  position:absolute; 
+  z-index: 1;
+
+  top: 13rem;
+  left: 1em;
+  width: 95.8%;
+}
+
+.picture{
+  position: absolute;
+  top: 13rem;
+  left: 3em;
+  z-index: 5;
+  width: 95.8%;
+}
+
+.example-section {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  height: 18px;
+  width: 634px;
+  left: 354px;
+  top:1128px;
+  position:absolute; 
+  z-index: 10;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0; /*初始状态 透明度为0*/
+  }
+  50% {
+    opacity: 0; /*中间状态 透明度为0*/
+  }
+  100% {
+    opacity: 1; /*结尾状态 透明度为1*/
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0; /*初始状态 透明度为0*/
+  }
+  50% {
+    opacity: 0; /*中间状态 透明度为0*/
+  }
+  100% {
+    opacity: 1; /*结尾状态 透明度为1*/
+  }
+}
+
+#box{
+  -webkit-animation-name: fadeIn; /*动画名称*/
+  -webkit-animation-duration: 0.8s; /*动画持续时间*/
+  -webkit-animation-iteration-count: 1; /*动画次数*/
+  -webkit-animation-delay: 0s; /*延迟时间*/
+
+  animation-name: fadeIn; /*动画名称*/
+  animation-duration: 0.8s; /*动画持续时间*/
+  animation-iteration-count: 1; /*动画次数*/
+  animation-delay: 0s; /*延迟时间*/
+}
+
+.canvas {
+  position:absolute; 
+  z-index: -1;
+}
+
+#search {
+  position:absolute; 
+  z-index: 10;
+  top:1022px;
+  left:1398px; 
+  width: 734px;
+  height: 120px;
+}

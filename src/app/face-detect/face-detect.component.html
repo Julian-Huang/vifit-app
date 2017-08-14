@@ -1,0 +1,39 @@
+
+<div style="position:fixed; left:50%; right:50%">
+
+  <md-card class="card">
+    <md-card-header>
+      <md-card-title style="font-size:3.2rem">人脸识别</md-card-title>
+      <md-card-subtitle style="font-size:2.8rem; display: inline-block; vertical-align: middle">{{state}} 
+        <md-progress-spinner  [value]="0.001" [color]="'warn'" [mode]="mode" style="width: 3rem; display: inline-block; vertical-align: middle"></md-progress-spinner>
+      </md-card-subtitle>  
+    </md-card-header>
+    <div>
+      <div [hidden]="showVideo" style="position:relative">
+        <canvas #canvas [width]="width" [height]="height" style="margin:0px; z-index: 0; position: absolute"></canvas>
+        <video #videoplayer [width]="width" [height]="height" autoplay style="z-index: -1; position: absolute"></video> 
+      </div>
+    </div>
+         <img src="/assets/personInfo/null.png"  class="backgroundPicture anim_fade_image" id=""  alt="something"> 
+      <img md-card-image *ngIf="showFacename === 'julian'"   src="/assets/personInfo/julian.PNG" class="picture anim_fade_image" id="box"  alt="something">
+      <img *ngIf="showFacename === 'Paul'" src="/assets/personInfo/Paul.PNG"  class="picture anim_fade_image" id="box"  alt="something">
+      <img *ngIf="(showFacename === 'feng') || (showFacename === 'fengj')" src="/assets/personInfo/fengjincong.png"  class="picture anim_fade_image" id="box"  alt="something">
+      <img *ngIf="showFacename === 'cjr'" src="/assets/personInfo/cjr.png"  class="picture anim_fade_image" id="box"  alt="something">
+      <img *ngIf="showFacename === 'cqw'" src="/assets/personInfo/cqw.png"  class="picture anim_fade_image" id="box"  alt="something">
+      <img *ngIf="showFacename === 'zs'" src="/assets/personInfo/zs.png"  class="picture anim_fade_image" id="box"  alt="something">
+      <img *ngIf="showFacename === 'ljb'" src="/assets/personInfo/ljb.png"  class="picture anim_fade_image" id="box"  alt="something">
+      <img *ngIf="showFacename === 'jpr'" src="/assets/personInfo/personInfo/jpr.png"  class="picture anim_fade_image" id="box"  alt="something">
+      <img *ngIf="showFacename === 'gjy'" src="/assets/personInfo/gjy.png"  class="picture anim_fade_image" id="box"  alt="something">
+      <img *ngIf="showFacename === 'wjl'" src="/assets/personInfo/wjl.png"  class="picture anim_fade_image" id="box"  alt="something">
+      <img *ngIf="showFacename === 'wsy'" src="/assets/personInfo/wsy.png"  class="picture anim_fade_image" id="box"  alt="something">
+      <img *ngIf="showFacename === 'hg'" src="/assets/personInfo/hg.png"  class="picture anim_fade_image" id="box"  alt="something">
+      <img *ngIf="showFacename === 'hym'" src="/assets/personInfo/hym.png"  class="picture anim_fade_image" id="box"  alt="something">  
+      <img *ngIf="showFacename === 'lbk'" src="/assets/personInfo/lbk.png"  class="picture anim_fade_image" id="box"  alt="something"> 
+      <img *ngIf="showFacename === 'zyw'" src="/assets/personInfo/zyw.png"  class="picture anim_fade_image" id="box"  alt="something"> 
+      <img *ngIf="showFacename === 'ccz'" src="/assets/personInfo/ccz.png"  class="picture anim_fade_image" id="box"  alt="something"> 
+      <img *ngIf="showFacename === 'zzj'" src="/assets/personInfo/ccz.png"  class="picture anim_fade_image" id="box"  alt="something"> 
+      <!-- <img *ngIf="showFacename === 'null'"src="/assets/personInfo/null.png"  class="picture anim_fade_image" id="box"  alt="something"> -->
+  </md-card>
+</div>
+
+<!-- src="/assets/personInfo/julian.PNG" -->

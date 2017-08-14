@@ -1,0 +1,21 @@
+<div style="position:fixed; bottom:2rem; right:0; left: 0;">
+  <md-progress-bar 
+      id="button-bar" 
+      [color]="color"
+      [value]="value" 
+      [mode]="mode"
+      [bufferValue]="bufferValue"
+      [style.width]="full_bar ? '50em' : '27em'"
+      [class.box-shadow-1]="hasShadow"
+      >
+  </md-progress-bar>
+  <p class="tip-gesture" *ngIf="tip === 'gesture'">伸出手势 <img class="icon" src="assets/leap-button-icon-gesture.png"></p>
+  <p class="tip" *ngIf="tip === 'next'">右 滑 前 往 下 一 步 <img class="icon" src="assets/leap-button-icon-next.png"></p>
+  <p class="tip" *ngIf="tip === 'back'">左 滑 前 往 上 一 步 <img class="icon" src="assets/leap-button-icon-back.png"></p>  
+  <p class="tip-achieve" *ngIf="tip === 'isNext'">到达下一步 !</p> 
+  <p class="tip-achieve" *ngIf="tip === 'isBack'">到达上一步!</p> 
+</div>
+
+<!-- <p>{{hand_position}}</p> -->
+
+<!-- [style.width]="full_bar ? '30em' : '5em'" -->

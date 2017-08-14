@@ -1,0 +1,18 @@
+<md-card class="chart-card" width="100px" style="width:1280px;height:720;margin:8em 8em 3em 8em;" >
+  <div class="row">  
+   <div class="col-md-3"> 
+    <div style="display: block;">
+      <canvas baseChart width="400" height="200"
+                [datasets]="lineChartData"
+                [labels]="lineChartLabels"
+                [options]="lineChartOptions"
+                [colors]="lineChartColors"
+                [legend]="lineChartLegend"
+                [chartType]="lineChartType"></canvas>
+     </div> 
+    </div>  
+  </div>
+</md-card>
+<!-- <button (click)="changeData()">Open me</button>
+
+<p>{{hrRed}}</p> -->

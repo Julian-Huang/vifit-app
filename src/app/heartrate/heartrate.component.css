@@ -1,0 +1,10 @@
+/* canvas {
+  background-image: url(back.jpg)
+} */
+
+.chart-card {
+  position: fixed;
+  left: 20.5%;
+  right: 20%;
+  top: 5%;
+}
