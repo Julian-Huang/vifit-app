@@ -1,4 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { WebSocketService } from '../web-socket.service'
+
 
 @Component({
   selector: 'app-heartrate',
@@ -11,11 +13,13 @@ export class HeartrateComponent implements OnInit {
   @Output() ifShowButton: EventEmitter<boolean> = new EventEmitter();
   showButton: boolean = false;
 
+  myJson: any;
+
   private _hrRed: number;
   count = 0;
   timesRun = 0;
 
-  constructor() {
+  constructor(public ws: WebSocketService) {
    }
 
    @Input()
@@ -30,20 +34,35 @@ export class HeartrateComponent implements OnInit {
       setTimeout(() => {
         this.showButton = false;
         this.ifShowButton.emit(this.showButton);
-      }, 500);
+      }, 2);
       setTimeout(() => {
         this.showButton = true;
         this.ifShowButton.emit(this.showButton);
-      }, 2450);
-      this.count = 100;
-      let interval = setInterval(() => { 
-        this.popNumber(0);
-        this.timesRun++;
-        if(this.timesRun === 200){
-          clearInterval(interval);
-          this.timesRun = 0;
+      }, 18000);
+      this.ws.send('heartrate_left\r\n');
+      let interval_1 = setInterval(() => { 
+        
+        if(this.ws.receiveFlag === 1){
+            this.ws.receiveFlag = 0;
+            this.myJson = this.ws.getJson();
         }
-      }, 10);
+        if(typeof(this.myJson.heartrate) === 'undefined') {
+        //   // alert("undefined");
+        //   console.log("undefined");
+          return;
+        }
+        if(this.myJson !== null){
+          // console.log(this.myJson.right);
+          if(this.myJson.heartrate === null) {
+            this.myJson = null;
+            return;
+          }
+          this._hrRed = this.myJson.heartrate;
+          console.log(this._hrRed);
+          this.popNumber(this._hrRed);
+          this.myJson = null;
+        }
+      }, 5);
     }
     else if(selected_side === 'none') {
     }
@@ -64,9 +83,9 @@ export class HeartrateComponent implements OnInit {
 
 
   public popNumber(newNum: number ){
-    // this.count += 0.5;
-    // newNum = this.count * (0.5 + Math.random() * 1)// + Math.cos(this.count + 1.5)* 7.4 + Math.sin(this.count + 3) * 6
-    let _lineChartData:Array<any> = new Array(this.lineChartData.length);;
+    this.count += 0.5;
+    newNum = this.count * (0.5 + Math.random() * 1)// + Math.cos(this.count + 1.5)* 7.4 + Math.sin(this.count + 3) * 6
+    let _lineChartData:Array<any> = new Array(this.lineChartData.length);
     for (let i = 0; i < this.lineChartData.length; i++) {
       _lineChartData[i] = {data: new Array(this.lineChartData[i].data.length), label: this.lineChartData[i].label};
       for (let j = 0; j < this.lineChartData[i].data.length - 1; j++) {
@@ -135,3 +154,14 @@ export class HeartrateComponent implements OnInit {
   public lineChartLegend: boolean = true;
   public lineChartType: string = 'line';
 }
+
+
+      // this.count = 100;
+      // let interval = setInterval(() => { 
+      //   this.popNumber(0);
+      //   this.timesRun++;
+      //   if(this.timesRun === 200){
+      //     clearInterval(interval);
+      //     this.timesRun = 0;
+      //   }
+      // }, 10);

@@ -45,7 +45,7 @@ export class FaceDetectComponent implements OnInit, AfterViewInit, AfterViewChec
     if(selected_side === 'back') {
       this.searchFace();
     }
-    else if(selected_side === 'none-0') {
+    else if(selected_side === 'none') {
       this.showFacename = 'null';
       this.state = '等待操作';
     }

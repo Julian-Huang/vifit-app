@@ -4,8 +4,9 @@
 
 <app-face-detect *ngIf="status === 'face_detect'" [ifSearchFace]="selected_side" (ifShowButton)="ifShowButton($event)"></app-face-detect>    
 <app-heartrate *ngIf="status === 'heartrate'" [hrRed]="hrRed" [isDetectHeartrate]="selected_side" (ifShowButton)="ifShowButton($event)"></app-heartrate> 
+<app-back-strength *ngIf="status === 'back-strength'"   [isDetectBackStrength]="selected_side" (ifShowButton)="ifShowButton($event)" [appShowButton]="showButton" ></app-back-strength> 
 <app-leap-button *ngIf="showButton" (selected_side)="choseSide($event)"></app-leap-button>
-<button (click)="heartrate_detech()"></button>   
+<!-- <button (click)="heartrate_detech()"></button>    -->
 <!-- <p>{{selected_side}}</p> 
 <p>{{showButton}}</p> -->
 

@@ -91,7 +91,7 @@ export class LeapButtonComponent implements OnInit, AfterViewChecked {
           }, 1200);
         }
         else {
-          this.selected_side_msg = 'none-0';
+          this.selected_side_msg = 'none';
           this.selected_side.emit(this.selected_side_msg);
           this.tip = 'gesture';
           this.value = 0;
